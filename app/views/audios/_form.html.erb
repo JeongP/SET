@@ -1,0 +1,27 @@
+
+<%= form_for(@audio) do |f| %>
+  <% if @audio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@audio.errors.count, "error") %> prohibited this audio from being saved:</h2>
+
+      <ul>
+      <% @audio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field text_color">
+    <% f.label :title %>Please select a voice file to convert to text.<br>
+    <%= f.file_field(:title, accept: 'audio/*', class: 'j_btn') %>
+  </div>
+  <div class="field text_color">
+    <%= f.hidden_field :user_id, :value => current_user.id  %>
+  </div>
+  <div class="actions" style="float:left; width:80%; ">
+    <%= f.submit :value => 'Upload', class: 'j_btn' %>
+  </div>
+  
+  
+<% end %>

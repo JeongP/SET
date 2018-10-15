@@ -1,0 +1,32 @@
+<div class="main-image">
+    <div class="black-filter">
+      <div class="audio_container">
+        <div class="records_title">
+          TEXT RECORDS
+        </div>
+        <% i = "" %>
+        <% @texts.each do |text| %>
+        <% if i!=text.created_at.strftime("%Y. %m. %d") %>
+        <div class="records_date">
+          <%= text.created_at.strftime("%Y. %m. %d") %>
+        </div>
+        <%else%>
+        <%end%>
+        <% i = text.created_at.strftime("%Y. %m. %d") %>
+        <a href="/texts/<%= text.id%>" class="records_item audio_title" > 
+          <div>
+            <i class="far fa-file-alt"></i>&nbsp;&nbsp;<%= text.title %>
+          </div>
+        </a>
+        <% end %>
+        <div class="records_footer">
+        
+        </div>
+      </div>
+    </div>
+</div>
+<div class="bottom-nav">
+    
+</div>
+
+

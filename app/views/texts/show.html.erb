@@ -1,0 +1,160 @@
+<div class="main-image">
+  <div class="black-filter">
+    <div class="voice_container">
+      <% text_title= File.basename("#{@text.title}",".wav") %>
+
+      <div class="voice_title"><%= link_to "<",texts_path %>&nbsp;&nbsp;<%=@text.created_at.strftime(" %Y. %m. %d")%> : <%= text_title %></div>
+      <%= form_for @text do |f| %>
+      <%= f.text_area :content, :class=>"text_content", :value=> @text.content %>
+
+      <!--<div class="text_content"><%= @text.content%></div>-->
+      <div id="player_id" class="player_class">
+        <audio id="record_audio" class="audio_class" src="<%=@audio.title%>"  preload="metadata"></audio>
+        <div id="slider2" class="volume2"></div>
+        <div id="slider" class="volume"><i class="fas fa-volume-down volume_down"></i><i class="fas fa-volume-up volume_up"></i></div>
+      </div>
+      <div class="time_left">
+        <span id="timeleft"></span>
+      </div>
+      <div class="voice_footer">
+        <i class="fas fa-play play_i" id="play_button" onClick="soundOn('record_audio')"></i>
+        <i class="fas fa-volume-up volume_up_i" id="volume_button" onClick="volumeOn('record_audio')"></i>
+        <%= f.submit :value => 'SAVE', class: 'j_btn', id: "edit"%>
+        <%end%>
+        <%= link_to @text, method: :delete, data: { confirm: '정말 삭제하시겠습니까??' } do %><i class="fas fa-trash-alt delete_i" ></i><%end%>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bottom-nav">
+    <i class="fas fa-glasses glass" id="glasses" onClick="fontSize()"></i>
+    <span class="stt-a" id="font-size">font-size up!</span>
+</div>
+
+
+
+<script>
+var i = 0;
+function fontSize(){
+  var thisfont=document.getElementById("font-size");
+  var glass=document.getElementById("glass");
+  if(i==0){
+    $(".text_content").css("font-size", "28px");
+    thisfont.innerHTML = "font-size down"
+    i=1;
+  }
+  else{
+    $(".text_content").css("font-size", "14px");
+    thisfont.innerHTML = "font-size up!"
+    i=0;
+  
+  }
+  
+}
+var m = 0;
+function soundOn(soundobj){
+var thissound=document.getElementById(soundobj);
+  if(m==0){
+    thissound.play();
+     $('#play_button').attr("class","fas fa-pause play_i");
+    m=1;
+  }
+  else{
+    thissound.pause();
+     $('#play_button').attr("class","fas fa-play play_i");
+    m=0;
+  
+  }
+}
+
+var n = 0;
+var vol = 0;
+function volumeOn(soundobj){
+var thissound=document.getElementById(soundobj);
+  if(n==0){
+    vol = thissound.volume;
+    thissound.volume = 0;
+     $('#volume_button').attr("class","fas fa-volume-off volume_up_i");
+     $("#slider").slider('value',0);
+    n=1;
+  }
+  else{
+    
+    thissound.volume = 0.5;
+     $('#volume_button').attr("class","fas fa-volume-up volume_up_i");
+     $("#slider").slider('value',50);
+    n=0;
+  
+  }
+}
+
+
+
+
+$("#slider").slider({
+      	min: 0,
+        max: 100,
+      	value: 50,
+    	  range: "min",
+      	slide: function(event, ui) {
+
+        	document.getElementById("record_audio").volume = (ui.value/100);
+      	}
+    });
+    
+document.getElementById("record_audio").onloadedmetadata = function() {
+   var dR = document.getElementById("record_audio").duration
+
+// multiply by 1000 because Date() requires miliseconds
+  var date = new Date(dR * 1000);
+  var hh = date.getUTCHours();
+  var mm = date.getUTCMinutes();
+  var ss = date.getSeconds();
+  // If you were building a timestamp instead of a duration, you would uncomment the following line to get 12-hour (not 24) time
+  // if (hh > 12) {hh = hh % 12;}
+  // These lines ensure you have two-digits
+  if (hh < 10) {hh = "0"+hh;}
+  if (mm < 10) {mm = "0"+mm;}
+  if (ss < 10) {ss = "0"+ss;}
+  // This formats your string to HH:MM:SS
+  var t = hh+":"+mm+":"+ss;
+  $("#lenth").text('Length : '+ t);
+  $("#timeleft").text(mm%10 + ':' + (ss > 9 ? ss : ss));
+};  
+    
+$("#record_audio").bind('timeupdate', function(){
+  var dR = document.getElementById("record_audio").duration
+  var cT = document.getElementById("record_audio").currentTime
+  var rem = parseInt(dR - cT, 10),
+  pos = (cT / dR) * 100,
+  mins = Math.floor(rem/60,10),
+  secs = rem - mins*60;
+  
+  $("#timeleft").text(mins + ':' + (secs > 9 ? secs : '0' + secs));
+
+    $("#slider2").slider({
+
+      	value: cT,
+      	step: 0.00001,
+        orientation: "horizontal",
+    	  range: "min",
+        max: dR,
+        animate: true,
+      slide: function(event, ui) {
+
+        document.getElementById("record_audio").currentTime = ui.value;
+      },
+      stop:function(e,ui) {
+        
+        $("#record_audio").currentTime = ui.value;
+      }
+    });
+  
+});
+
+
+
+  
+</script>
+
+

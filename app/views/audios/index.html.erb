@@ -1,0 +1,32 @@
+<div class="main-image">
+    <div class="black-filter">
+      <div class="audio_container">
+        <div class="records_title">
+          VOICE RECORDS
+        </div>
+        <% i = "" %>
+        <% @audios.each do |audio| %>
+        <% if i!=audio.created_at.strftime("%Y. %m. %d") %>
+        <div class="records_date">
+          <%= audio.created_at.strftime("%Y. %m. %d") %>
+        </div>
+        <%else%>
+        <%end%>
+        <% i = audio.created_at.strftime("%Y. %m. %d") %>
+        <a class="records_item" href="/audios/<%= audio.id%>" class="audio_title">
+          <div >
+            <% audio_title= File.basename("#{audio.title}",".wav") %>
+            ▶ <%= audio_title %>
+          </div>
+        </a>
+        <% end %>
+        <div class="records_footer">
+        
+        </div>
+      </div>
+    </div>
+</div>
+<div class="bottom-nav">
+    
+</div>
+

@@ -1,0 +1,27 @@
+<%= form_for @text do |f| %>
+
+<div class='text_color'>
+    <% f.label :title %>FileName<br>
+      <%= f.text_field :title, :value=>File.basename("#{@audio.title}",".wav") ,:placeholder => File.basename("#{@audio.title}",".wav") %>
+      <br><br>
+      <%= f.label :lang, 'Language' %><br>
+      <%=f.radio_button :lang, 'korea', :checked => true %>KOR
+      <%=f.radio_button :lang, 'us' %>ENG
+      <br><br>
+      <%= f.label :Topic_1 %><br>
+      <%= f.text_field :phase1  %><br>
+      <%= f.label :Topic_2 %><br>
+      <%= f.text_field :phase2  %><br>
+      <%= f.label :Topic_3 %><br>
+      <%= f.text_field :phase3 %><br>
+      <%= f.hidden_field :user_id, :value => current_user.id  %>
+      <%= f.hidden_field :audio_id, :value => @audio.id  %>
+    <div class="actions">
+      <%= f.submit :value => 'Convert', class: 'j_btn'%>
+    </div>
+  <% end %>
+</div>
+  
+
+
+    

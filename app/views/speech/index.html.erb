@@ -1,0 +1,56 @@
+<%
+  require "google/cloud"
+  require "google/cloud/speech"
+  
+  
+  audio_file_path = "gs://speech-set/uploads/audio/title/#{current_user.id}/002_test.wav"
+  project_id="set-ambition"
+  
+  
+  speech = Google::Cloud::Speech.new project:project_id
+  audio_file_path = "./app/assets/audio_files/jtest.wav"
+  audio  = speech.audio audio_file_path, 
+                        encoding:    :linear16,
+                        sample_rate: 16000,
+                        language:    "ko-KR"
+  
+  results = audio.recognize
+%>
+
+
+
+<div class=main-image>
+  <div class="black-filter">
+    <div class="audio_container">
+      <div class="records_title">
+         STT Contents
+      </div>
+      <div class="text_design">
+          <% results.each do |result| %>
+          <%=  "#{current_user.name} 님: #{result.transcript}" %>
+          <% end%>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="bottom-nav">
+    
+</div>
+
+<!--<div class ="back_test">-->
+<!--  <div class="script_test">-->
+  
+<!--  </div>-->
+<!--</div>-->
+<!--<style>-->
+<!--  .back_test{-->
+<!--    width:100%;-->
+<!--    height:100vh;-->
+<!--    background-color :gray;-->
+<!--  }-->
+<!--  .script_test{-->
+<!--    color:white;-->
+<!--  }-->
+<!--</style>-->

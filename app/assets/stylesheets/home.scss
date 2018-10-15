@@ -1,0 +1,184 @@
+
+
+/*MOBILE CSS*/
+.navbar{
+    background : rgb(0,0,0);
+    box-shadow: 0px 3px 6px black;
+    
+        .navbar-logo{
+            margin-left: 1.6rem;
+            color:white;
+            font-size:80px;
+            &:hover{
+                text-decoration: none;
+                color:#FFC628;
+            }
+        }
+        .fas{
+            color:white;
+            font-size:90px;
+        }
+ 
+    .navbar-collapse{
+        display:flex;
+        justify-content:flex-end;
+        .navbar-nav{
+            
+            .nav-item{
+                font-size:35px;
+                margin-top: 0.5rem;
+                margin-right: 1.2rem;
+                color:white;
+                &:hover{
+                    text-decoration: none;
+                    color:#FFC628;
+                }
+            }
+            .nav-item-last{
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}
+.main-image{
+    height:80vh;
+    width:100%;
+    background: url(/conf3.jpg) no-repeat center; 
+    background-size : cover;
+    overflow:hidden;
+    .black-filter{
+        height:80vh;
+        background-color:rgba(0, 0, 0, 0.65);
+        display:flex;
+        justify-content : center;
+        align-items : center;
+        
+    }
+}
+
+.j_background_empty_img {
+    height:80vh;
+    width:100%;
+    z-index: -120;
+}
+.bottom-nav{
+        height:12vh;
+        width:100%;
+        background-color : black;
+}
+
+@media (min-width:992px){
+.navbar{
+    height: 8vh;
+    .navbar-logo{
+            margin-left: 1.6rem;
+            color:white;
+            font-size:50px;
+            &:hover{
+                text-decoration: none;
+                color:#FFC628;
+            }
+        }
+        .fas{
+            color:white;
+            font-size:90px;
+        }
+ 
+    .navbar-collapse{
+        display:flex;
+        justify-content:flex-end;
+        .navbar-nav{
+            
+            .nav-item{
+                font-size:35px;
+                margin-top: 0.5rem;
+                margin-right: 1.2rem;
+                color:white;
+                &:hover{
+                    text-decoration: none;
+                    color:#FFC628;
+                }
+            }
+            .nav-item-last{
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}
+    
+    
+}
+/*PC CSS*/
+@media all and (min-width:1132px){
+
+.navbar{
+    height: 8vh;
+    background : rgb(0,0,0);
+    box-shadow: 0px 3px 6px black;
+    
+        .navbar-logo{
+            margin-left: 1.6rem;
+            color:white;
+            font-size:40px;
+            &:hover{
+                text-decoration: none;
+                color:#FFC628;
+            }
+        }
+        .fas{
+            color:white;
+            font-size:90px;
+        }
+ 
+    .navbar-collapse{
+        display:flex;
+        justify-content:flex-end;
+        .navbar-nav{
+            
+            .nav-item{
+                font-size:35px;
+                margin-top: 0.5rem;
+                margin-right: 1.2rem;
+                color:white;
+                &:hover{
+                    text-decoration: none;
+                    color:#FFC628;
+                }
+            }
+            .nav-item-last{
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}
+.main-image{
+    height:80vh;
+    width:100%;
+    background: url(/conf3.jpg) no-repeat center; 
+    background-size : cover;
+    overflow:hidden;
+    .black-filter{
+        height:80vh;
+        background-color:rgba(0, 0, 0, 0.65);
+        display:flex;
+        justify-content : center;
+        align-items : center;
+    }
+}
+.bottom-nav{
+        height:12vh;
+        width:100%;
+        background-color : black;
+    }
+}
+
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+}

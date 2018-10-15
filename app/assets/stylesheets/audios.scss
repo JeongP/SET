@@ -1,0 +1,502 @@
+// Place all the styles related to the audios controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.player_class{
+	width: 100%;
+
+	position: relative;
+	display:flex;
+	justify-content:center;
+
+	align-items:center;
+					
+	.volume{
+		margin-top:3rem;
+	   	position: absolute !important; 
+		display:flex;
+		height: 5px !important;
+		width: 50%;
+		background: #555 !important;
+		border: none  !important;
+		border-radius: 15px !important;
+		.volume_down{
+			position:absolute;
+			left: -1.5rem;
+			color: white;
+			bottom: -0.4rem;
+		}
+		.volume_up{
+			margin-right: 0;
+			position:absolute;
+			right: -1.5rem;
+			color: white;
+			bottom: -0.4rem;
+		}
+		.ui-slider-range-min {
+			height: 5px;
+			width: 100%;
+			position: absolute;
+			background : #2ecc71!important;
+			border: none;
+			border-radius: 10px;
+		    outline: none;
+		}
+		.ui-slider-handle {
+		    width: 14px !important;
+		   	height: 14px !important;
+		   	border-radius: 14px !important;
+	      	background: #FFF !important;
+	    	position: absolute !important;
+	    	margin-left: -8px !important;
+	     	margin-top: 1px !important;
+	    	cursor: pointer;
+	    	outline: none;
+		}
+	}
+    .volume2{
+    	
+	   	position: absolute !important; 
+		display:flex;
+		height: 5px !important;
+		width: 80%;
+		background: #555 !important;
+		border: none  !important;
+		border-radius: 15px !important;
+					
+		.ui-slider-range-min {
+			height: 5px;
+			width: 100%;
+			position: absolute;
+			background : white!important;
+			border: none;
+			border-radius: 10px;
+		    outline: none;
+		}
+		.ui-slider-handle {
+		    width: 14px !important;
+		   	height: 14px !important;
+		   	border-radius: 14px !important;
+	      	background: #FFF !important;
+	    	position: absolute !important;
+	    	margin-left: -8px !important;
+	     	margin-top: 1px !important;
+	    	cursor: pointer;
+	    	outline: none;
+		}
+	}
+}
+/* slider bar UI */
+
+.audio_container{
+	
+	padding-top: 2rem;
+	padding-bottom: 3rem;
+    background-color:rgba(16,16,16,0.75);
+    width:95%;
+    margin : 0 auto;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    .records_title{
+        height:15rem;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-size:80px;
+        color:#E0E0E0;
+        font-weight:250;
+    }
+    .records_date{
+        background-color:rgb(16,16,16);
+        width:100%;
+        font-size:35px;
+        color:gray;
+        padding-left:2rem;
+    }
+    .records_item{
+        width:100%;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        font-size:50px;
+        background-color:black;
+        border-bottom:4px outset gray;
+        color:white;
+        padding-left:2rem;
+        .audio_title{
+            font-weight:200;
+            color:white;
+            &:hover{
+                text-decoration: none;
+                color:#FFC628;
+            }
+        }        
+    }
+    .records_footer{
+        height: 1.5rem;   
+    }
+}
+//#433434
+
+
+/*PC CSS*/
+@media (min-width:992px){
+	.player_class{
+		width: 100%;
+		position: relative;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+						
+		.volume{
+			margin-top:3rem;
+		   	position: absolute !important; 
+			display:flex;
+			height: 5px !important;
+			width: 50%;
+			background: #555 !important;
+			border: none  !important;
+			border-radius: 15px !important;
+			.volume_down{
+				position:absolute;
+				left: -1.5rem;
+				color: white;
+				bottom: -0.4rem;
+			}
+			.volume_up{
+				margin-right: 0;
+				position:absolute;
+				right: -1.5rem;
+				color: white;
+				bottom: -0.4rem;
+			}
+			.ui-slider-range-min {
+				height: 5px;
+				width: 100%;
+				position: absolute;
+				background : #2ecc71!important;
+				border: none;
+				border-radius: 10px;
+			    outline: none;
+			}
+			.ui-slider-handle {
+			    width: 14px !important;
+			   	height: 14px !important;
+			   	border-radius: 14px !important;
+		      	background: #FFF !important;
+		    	position: absolute !important;
+		    	margin-left: -8px !important;
+		     	margin-top: 1px !important;
+		    	cursor: pointer;
+		    	outline: none;
+			}
+		}
+	    .volume2{
+		   	position: absolute !important; 
+			display:flex;
+			height: 5px !important;
+			width: 80%;
+			background: #555 !important;
+			border: none  !important;
+			border-radius: 15px !important;
+						
+			.ui-slider-range-min {
+				height: 5px;
+				width: 100%;
+				position: absolute;
+				background : white!important;
+				border: none;
+				border-radius: 10px;
+			    outline: none;
+			}
+			.ui-slider-handle {
+			    width: 14px !important;
+			   	height: 14px !important;
+			   	border-radius: 14px !important;
+		      	background: #FFF !important;
+		    	position: absolute !important;
+		    	margin-left: -8px !important;
+		     	margin-top: 1px !important;
+		    	cursor: pointer;
+		    	outline: none;
+			}
+		}
+	}
+	.audio_container{
+	    background-color:rgba(16,16,16,0.75);
+	    width:50%;
+	    margin : 0 auto;
+	    height:auto;
+	    display:flex;
+	    flex-direction:column;
+	    .records_title{
+	        margin:0;
+	        height:8rem;
+	        display:flex;
+	        justify-content:center;
+	        align-items:center;
+	        font-size:60px;
+	        color:#E0E0E0;
+	        font-weight:250;
+	    }
+	    .records_date{
+	        background-color:rgb(16,16,16);
+	        width:80%;
+	        margin : 0 auto;
+	        font-size:20px;
+	        color:gray;
+	        padding-left:2rem;
+	    }
+	    .records_item{
+	        width:80%;
+	        margin : 0 auto;
+	        display:flex;
+	        justify-content:space-between;
+	        align-items:center;
+	        font-size:30px;
+	        background-color:black;
+	        border-bottom:2px outset gray;
+	        color:white;
+	        padding-left:2rem;
+	        .audio_title{
+	            color:white;
+	            &:hover{
+	                text-decoration: none;
+	                color:#FFC628;
+	            }
+	        }        
+	    }
+	    .records_item:hover {
+	    	text-decoration: none;
+	    	background: rgba(255,255,255,0.2);
+			color: #00000; text-shadow: -1px -1px 0 #222222;
+	    }
+	    .records_footer{
+	        height: 1.5rem;   
+	    }
+	}
+}
+.align_center {
+	margin: 0 auto;
+	a { text-decoration: none;
+		color: #ffffff;
+	}
+	a:hover { text-decoration: none;
+			color:#ffffff;
+	}
+	.j_btn_size {
+		width: 75.32px;
+		height: 32px;
+	}
+}
+
+
+
+
+
+
+
+
+/* show page */
+.voice_container{
+	color :white;
+	background-color:rgba(16,16,16,0.75);
+    width:50%;
+    margin : 0 auto;
+    height:auto;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	.voice_title{
+		padding-left:1rem;
+		height: 4rem;
+		font-size:30px;
+		font-weight:250;
+		display:flex;
+		align-items:center;
+		a{
+			font-size: 35px;
+			color : white;
+			&:hover{
+				text-decoration:none;
+				color:#FFC628;
+				cursor:pointer;
+			}
+		}
+	}
+	.text_content{
+		font: 400 11px 'Nanum Gothic';
+		font-size: 14px;
+		color:white;
+		height: 12rem;
+		width: 100%;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		overflow: scroll;
+		font-weight:150;
+		font-family: 'Nanum Gothic', sans-serif;
+		-webkit-appearance: textfield;
+    	background:none;
+    	-webkit-rtl-ordering: logical;
+    	cursor: text;
+    	border:none;
+    	text-rendering: auto;
+    	letter-spacing: normal;
+    	word-spacing: normal;
+   		text-transform: none;
+    	text-indent: 0px;
+    	text-shadow: none;
+    	display: inline-block;
+   		text-align: start;
+    	margin: auto
+    	
+		
+	}
+	.voice_info{
+		height: 2.5rem;
+		width:90%;
+		margin : 0 auto;
+		padding-left:1rem;
+		color:gray;
+		font-size:15px;
+		display:flex;
+		align-items:center;
+		background-color:black;
+	}
+	.voice_item{
+		height: 2.5rem;
+		width:90%;
+		margin : 0 auto;
+		padding-left:1rem;
+		border-bottom:2px outset gray;
+		font-size:20px;
+		display:flex;
+		align-items:center;
+		justify-content:space-between;
+		font-weight:300;
+	}
+	.player_class{
+		height: 10rem;
+	}
+	.time_left{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		height:4rem;
+		font-size:40px;
+		
+	}
+	.voice_footer{
+		height: 6rem;
+		display:flex;
+		justify-content: space-around;
+		align-items: center;
+		font-size:70px;
+		#edit{
+			margin-top: 0rem;
+			height:60px;
+			width:80px;
+			font-size:20px;
+			
+		}
+		.play_i{
+			&:hover{
+				color:#FFC628;
+				cursor:pointer;
+			}
+		}
+		.volume_up_i{
+			width: 78.75px;
+			&:hover{
+				color:#FFC628;
+				cursor:pointer;
+			}			
+		}
+		a{
+			color:white;	
+		}
+		.delete_i{
+			&:hover{
+				color:#FFC628;
+				cursor:pointer;
+			}			
+		}
+	}
+}
+.bottom-nav{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	#to_text{
+		font-size:60px;
+		color: Lime;
+		cursor:pointer;
+		text-align:center;
+	}
+	.glass{
+		font-size:60px;
+		color: Lime;
+		cursor:pointer;
+		text-align:center;		
+	}
+	.button_1{
+		background:none;
+		border: 0px;
+		&:focus{
+			outline: none;
+		}
+	}
+	.stt-a{
+		color : white;
+		font-size:10px;
+	}
+}
+
+.text_color {
+	color : #D5D5D5;
+}
+
+.j_btn {
+	cursor: pointer !important;
+    border: 2px solid gray;
+    border-radius: 7px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 1.5rem;
+    background-color: rgba(255,255,255,0);
+    color: white;
+}
+
+.j_btn:hover {
+	background: rgba(255,255,255,0.3);;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2); 
+	color: #00000; text-shadow: -1px -1px 0 #222222;
+
+}
+
+// .j_btn_color {
+// 	// background: rgb(204, 204, 204);
+// }
+
+.text_content::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color:none;
+}
+ 
+.text_content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius:10px;
+}
+ 
+.text_content::-webkit-scrollbar-thumb {
+  background-color: gray;
+  outline: 1px solid slategrey;
+  border-radius:10px;
+}
+.text_content::-webkit-scrollbar-corner  { background-color:none;
+color:none; border: none;}
+.text_content::-webkit-resizer           { background-color:none;
+color:none; border :none;}
